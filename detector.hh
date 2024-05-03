@@ -5,20 +5,21 @@
 #include "G4RunManager.hh"
 #include "G4SystemOfUnits.hh"
 
-#include "g4root.hh"
-
+// #include "g4root.hh"
+#include "G4AnalysisManager.hh"
 class MySensitiveDetector : public G4VSensitiveDetector
 {
 public:
     MySensitiveDetector(G4String);
     ~MySensitiveDetector();
-    int prevEvent=1; //container for event number
-    int acum_hits=0; //container for hit counts, has to be cleared after each event
-    
+    int prevEvent = 1; // container for event number
+    int acum_hits = 0; // container for hit counts, has to be cleared after each event
+
 private:
     virtual G4bool ProcessHits(G4Step *, G4TouchableHistory *);
-    
-    G4PhysicsOrderedFreeVector *quEff;
+
+    // G4PhysicsOrderedFreeVector *quEff;
+    G4PhysicsFreeVector *quEff;
 };
 
 #endif
